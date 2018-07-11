@@ -22,13 +22,12 @@
       console.log(firebase.auth().currentUser['refreshToken']);
       //getToken
   });
-
   messaging.requestPermission().then(function(){
-        return messaging.getToken();
-  }).then(function(token){
-      console.log('token : ', token);
-  }).catch(function (err) {
-      console.log(err);
+    messaging.getToken().then(function(token){
+        console.log('token : ', token);
+    }).catch(function (err) {
+        console.log(err);
+    });
   });
   //onMessage Event
   messaging.onMessage(function(payload) {
